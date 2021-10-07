@@ -21,7 +21,6 @@ func get_input():
 	if Input.is_action_pressed("Down"):
 		velocity.y += 1
 	if Input.is_action_pressed("Right"):
-		print("true")
 		velocity.x += 1
 	if Input.is_action_pressed("Left"):
 		velocity.x -= 1
