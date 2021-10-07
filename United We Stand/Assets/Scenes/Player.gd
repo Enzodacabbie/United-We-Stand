@@ -11,15 +11,17 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	get_input()
-	move_and_collide(velocity * delta)
+	move_and_collide(velocity*delta)
 	
 
 func get_input():
+	velocity = Vector2()
 	if Input.is_action_pressed("Up"):
 		velocity.y -= 1
 	if Input.is_action_pressed("Down"):
 		velocity.y += 1
 	if Input.is_action_pressed("Right"):
+		print("true")
 		velocity.x += 1
 	if Input.is_action_pressed("Left"):
 		velocity.x -= 1
