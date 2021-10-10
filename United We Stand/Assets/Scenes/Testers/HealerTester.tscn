@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Scenes/Enemy/DummyEnemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Scenes/Enemy/HealerEnemy/HealerEnemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Scenes/Testers/HealerTester.gd" type="Script" id=3]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Healer" parent="." instance=ExtResource( 2 )]
+position = Vector2( 633.74, 314.98 )
+
+[node name="Dummy" parent="." instance=ExtResource( 1 )]
+position = Vector2( 474.99, 388.056 )
+
+[node name="Button" type="Button" parent="."]
+margin_left = 45.3572
+margin_top = 13.8591
+margin_right = 86.3572
+margin_bottom = 33.8591
+text = "Heal"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Enemy" parent="." instance=ExtResource( 1 )]
+position = Vector2( 744.613, 502.709 )
+
+[node name="Enemy2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 624.921, 183.948 )
+
+[node name="Enemy3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 157.49, 345.218 )
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
