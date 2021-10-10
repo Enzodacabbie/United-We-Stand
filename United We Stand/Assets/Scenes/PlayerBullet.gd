@@ -18,3 +18,10 @@ func _ready():
 func _physics_process(delta):
 	# make the bullet fly constantly in one direction
 	position += direction * velocity * delta
+
+
+
+func _on_Bullet_body_entered(body):
+	if(body.is_in_group("enemies")):
+		body.takeDamage(1)
+		queue_free()
