@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="United We Stand"
-run/main_scene="res://Assets/Scenes/Player.tscn"
+run/main_scene="res://Assets/Scenes/Player/Player.tscn"
 config/icon="res://icon.png"
 
 [input]
