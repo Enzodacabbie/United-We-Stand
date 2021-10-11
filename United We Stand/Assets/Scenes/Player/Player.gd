@@ -7,16 +7,19 @@ export (PackedScene) var bullet # reference to the bullet the player fires
 
 var shotReady = true # true when the player can fire another shot
 
+export var maxHP = 15
+var _HP
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	_HP = maxHP
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	_get_input()
 	move_and_collide(velocity*delta)
-	
+	_tryDying()
 	_shootingHandler()
 	
 
@@ -44,3 +47,11 @@ func _shootingHandler():
 
 func _on_ShotCooldown_timeout():
 	shotReady = true
+
+func takeDamage(var amount):
+	_HP = clamp(_HP - amount, 0, maxHP)
+
+func _tryDying():
+	if (_HP == 0):
+		print("heck")
+		takeDamage(-100)
