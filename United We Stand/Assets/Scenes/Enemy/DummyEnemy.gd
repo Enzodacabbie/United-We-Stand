@@ -8,7 +8,7 @@ func _ready():
 
 
 func _process(delta):
-	._process(delta)
+	# ._process(delta)
 	_updateHPBar()
 
 # the dummy enemy has an hp bar. This function makes that hp bar update.

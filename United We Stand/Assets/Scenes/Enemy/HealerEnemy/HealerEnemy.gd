@@ -10,7 +10,8 @@ func _ready():
 	._ready()
 
 func _process(delta):
-	._process(delta)
+	# ._process(delta)
+	pass
 
 
 

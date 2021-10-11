@@ -25,4 +25,7 @@ shape = SubResource( 1 )
 wait_time = 0.2
 one_shot = true
 
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
 [connection signal="timeout" from="ShotCooldown" to="." method="_on_ShotCooldown_timeout"]
