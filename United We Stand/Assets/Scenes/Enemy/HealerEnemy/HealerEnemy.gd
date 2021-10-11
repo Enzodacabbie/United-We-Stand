@@ -1,4 +1,4 @@
-extends "res://Assets/Scenes/Enemy/EnemyBase.gd"
+extends EnemyBase
 
 # Declare member variables here.
 export var healAmount = 2

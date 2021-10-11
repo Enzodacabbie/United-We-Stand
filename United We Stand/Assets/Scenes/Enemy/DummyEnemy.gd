@@ -1,4 +1,4 @@
-extends "res://Assets/Scenes/Enemy/EnemyBase.gd"
+extends EnemyBase
 
 
 # Called when the node enters the scene tree for the first time.

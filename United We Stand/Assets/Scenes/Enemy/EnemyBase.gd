@@ -1,4 +1,6 @@
 extends RigidBody2D
+class_name EnemyBase
+
 # Declare member variables here.
 export var maxHP = 5
 var _HP

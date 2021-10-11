@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "RigidBody2D",
+"class": "EnemyBase",
+"language": "GDScript",
+"path": "res://Assets/Scenes/Enemy/EnemyBase.gd"
+} ]
+_global_script_class_icons={
+"EnemyBase": ""
+}
+
 [application]
 
 config/name="United We Stand"
