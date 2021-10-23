@@ -16,15 +16,22 @@ func _ready():
 func _process(delta):
 	_doShootingLogic()
 
+# this function handles shooting and can be overriden to implement more complex shot behavior
+# this version fires a single shot at where the player was at time of shooting
 func _doShootingLogic():
 	if aggroTarget != null and shotReady:
 		shotReady = false
 		$ShotCooldown.start()
-		var theBullet = bullet.instance()
-		theBullet.position = $FirePoint.global_position
-		theBullet.direction = $FirePoint.global_position.direction_to(aggroTarget.global_position)
-		theBullet.look_at(aggroTarget.position)
-		owner.add_child(theBullet)
+		_fireShot(bullet, $FirePoint.global_position.direction_to(aggroTarget.global_position))
+
+# when called, this function shoots a single bullet from the fire point in
+# the direction specified by vector2 shotDirection
+func _fireShot(var bulletType, var shotDirection):
+	var theBullet = bulletType.instance()
+	theBullet.position = $FirePoint.global_position
+	theBullet.direction = shotDirection
+	theBullet.look_at(aggroTarget.position)
+	owner.add_child(theBullet)
 
 func _on_AggroZone_body_entered(body):
 	if(body.is_in_group("player")):
@@ -33,7 +40,6 @@ func _on_AggroZone_body_entered(body):
 func _on_AggroZone_body_exited(body):
 	if(body.is_in_group("player")):
 		aggroTarget = null
-
 
 
 func _on_ShotCooldown_timeout():
