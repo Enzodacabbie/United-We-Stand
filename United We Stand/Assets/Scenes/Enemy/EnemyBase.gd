@@ -22,6 +22,5 @@ func takeDamage(var amount):
 
 func _tryDying():
 	if (_HP == 0):
-		print("An enemy has been slain.")
 		queue_free()
 
