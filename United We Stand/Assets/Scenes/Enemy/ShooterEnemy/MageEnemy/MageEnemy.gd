@@ -16,6 +16,7 @@ func _doShootingLogic():
 		shotReady = false
 		$ShotCooldown.start()
 		_fireSpreadshot()
+		_stopToShoot()
 
 # when called, this function fires numberOfBullets bullets, each bulletAngle degrees apart
 # the center of the spread is towards the player
@@ -26,7 +27,6 @@ func _fireSpreadshot():
 	var currentAngle = -spreadSize / 2
 	# this gets used to rotate everything
 	var directionToTarget = $FirePoint.global_position.direction_to(aggroTarget.global_position)
-	print(directionToTarget)
 	while currentAngle <= spreadSize / 2:
 		_fireShot(bullet, directionToTarget.rotated(currentAngle))
 		currentAngle += bulletAngleRad

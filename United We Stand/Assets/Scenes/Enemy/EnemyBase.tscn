@@ -9,6 +9,7 @@ radius = 32.0156
 [node name="Enemy" type="RigidBody2D" groups=[
 "enemies",
 ]]
+mode = 2
 script = ExtResource( 1 )
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]

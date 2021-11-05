@@ -16,12 +16,16 @@ position = Vector2( 388, 226 )
 
 [node name="Enemy2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 198, 63 )
+mode = 0
 
 [node name="Enemy3" parent="." instance=ExtResource( 4 )]
 position = Vector2( 303.454, -196.507 )
+mode = 0
 
 [node name="Enemy4" parent="." instance=ExtResource( 5 )]
 position = Vector2( -1394.77, 1043.93 )
+mode = 2
 
 [node name="Enemy5" parent="." instance=ExtResource( 6 )]
 position = Vector2( -1461.65, -837.579 )
+mode = 2

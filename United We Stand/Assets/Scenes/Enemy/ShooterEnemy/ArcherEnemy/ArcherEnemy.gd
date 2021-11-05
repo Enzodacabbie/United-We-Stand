@@ -5,13 +5,13 @@ extends "res://Assets/Scenes/Enemy/ShooterEnemy/ShooterEnemyBase.gd"
 # Declare member variables here. Examples:
 export var shotsPerVolley = 3
 
-var shotsLoaded
 var isShooting
+var shotsLoaded
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	shotsLoaded = 0
 	isShooting = false
+	shotsLoaded = 0
 
 func _doShootingLogic():
 	if aggroTarget != null:
@@ -21,6 +21,7 @@ func _doShootingLogic():
 			shotReady = false
 			$ShotCooldown.start()
 			$RapidCooldown.start()
+			_stopToShoot()
 		elif shotsLoaded == 0:
 			isShooting = false
 			$RapidCooldown.stop()

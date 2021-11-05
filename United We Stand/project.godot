@@ -24,6 +24,11 @@ config/name="United We Stand"
 run/main_scene="res://Assets/Scenes/Player/Player.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=1280
+window/size/height=720
+
 [input]
 
 Up={
