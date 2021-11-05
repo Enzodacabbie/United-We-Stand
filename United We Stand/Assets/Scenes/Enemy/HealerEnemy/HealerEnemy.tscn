@@ -38,3 +38,4 @@ one_shot = true
 [connection signal="body_entered" from="FollowZone" to="." method="_on_FollowZone_body_entered"]
 [connection signal="body_exited" from="FollowZone" to="." method="_on_FollowZone_body_exited"]
 [connection signal="timeout" from="ActTimer" to="." method="_on_ActTimer_timeout"]
+[connection signal="timeout" from="MoveCooldown" to="." method="_on_MoveCooldown_timeout"]

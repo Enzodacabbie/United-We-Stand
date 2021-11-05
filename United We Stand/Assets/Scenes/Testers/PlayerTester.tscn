@@ -9,15 +9,11 @@
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 
-[node name="Enemy4" parent="." groups=[
-"enemies",
-] instance=ExtResource( 5 )]
+[node name="Enemy4" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1022.16, 629.557 )
 mode = 2
 
-[node name="Enemy5" parent="." groups=[
-"enemies",
-] instance=ExtResource( 6 )]
+[node name="Enemy5" parent="." instance=ExtResource( 6 )]
 position = Vector2( 840.69, 50.547 )
 mode = 2
 

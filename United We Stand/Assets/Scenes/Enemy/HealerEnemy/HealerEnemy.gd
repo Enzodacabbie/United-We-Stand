@@ -6,12 +6,14 @@ export var healAmount = 2
 var _healTargets = [] # array containing which enemies will get healed
 var _moveTargets = [] # array containing candidates for the healer to follow
 var _followTarget # the enemy that this healer is currently trying to follow
+var _stoppingToHeal
 export var moveSpeed = 125
 export var followDistance = 125
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	._ready()
+	_stoppingToHeal = false
 
 func _process(delta):
 	# ._process(delta)
@@ -19,7 +21,7 @@ func _process(delta):
 
 func _movementHandler(state: Physics2DDirectBodyState):
 	state.linear_velocity = Vector2.ZERO
-	if _followTarget != null:
+	if _followTarget != null and not _stoppingToHeal:
 		if global_position.distance_to(_followTarget.global_position) > followDistance:
 			state.linear_velocity = moveSpeed * global_position.direction_to(_followTarget.global_position)
 
@@ -29,7 +31,6 @@ func _on_HealZone_body_entered(body):
 	if(body.is_in_group("enemies")):
 		# add it to the list of enemies to be healed
 		_healTargets.push_back(body)
-
 
 # when a body leaves the healing radius...
 func _on_HealZone_body_exited(body):
@@ -67,3 +68,7 @@ func _on_ActTimer_timeout():
 		castHeal()
 		_chooseFollowTarget()
 		$MoveCooldown.start()
+		_stoppingToHeal = true
+
+func _on_MoveCooldown_timeout():
+	_stoppingToHeal = false
