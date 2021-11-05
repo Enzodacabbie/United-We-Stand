@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/Scenes/Enemy/EnemyBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Scenes/Enemy/HealerEnemy/HealerEnemy.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 300.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 600.0
 
 [node name="Enemy" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -17,5 +20,21 @@ modulate = Color( 1, 0.392157, 0.976471, 1 )
 [node name="HealZoneShape" type="CollisionShape2D" parent="HealZone" index="0"]
 shape = SubResource( 1 )
 
+[node name="FollowZone" type="Area2D" parent="." index="3"]
+
+[node name="FollowZoneShape" type="CollisionShape2D" parent="FollowZone" index="0"]
+shape = SubResource( 2 )
+
+[node name="ActTimer" type="Timer" parent="." index="4"]
+wait_time = 4.0
+autostart = true
+
+[node name="MoveCooldown" type="Timer" parent="." index="5"]
+wait_time = 0.3
+one_shot = true
+
 [connection signal="body_entered" from="HealZone" to="." method="_on_HealZone_body_entered"]
 [connection signal="body_exited" from="HealZone" to="." method="_on_HealZone_body_exited"]
+[connection signal="body_entered" from="FollowZone" to="." method="_on_FollowZone_body_entered"]
+[connection signal="body_exited" from="FollowZone" to="." method="_on_FollowZone_body_exited"]
+[connection signal="timeout" from="ActTimer" to="." method="_on_ActTimer_timeout"]

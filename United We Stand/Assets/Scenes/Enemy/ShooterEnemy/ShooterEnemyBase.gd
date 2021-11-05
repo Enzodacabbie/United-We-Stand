@@ -6,7 +6,7 @@ var aggroTarget # holds reference to the current aggro target of the enemy
 var shotReady # true when the enemy can fire another shot
 export (PackedScene) var bullet # holds reference to the bullet this enemy fires
 
-export var moveSpeed = 200 # max movespeed of enemy
+export var moveSpeed = 150 # max movespeed of enemy
 
 var stoppingToShoot
 var inRange
@@ -21,9 +21,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	_doShootingLogic()
-
-func _integrate_forces(state):
-	_movementHandler(state)
 
 # this function handles shooting and can be overriden to implement more complex shot behavior
 # this version fires a single shot at where the player was at time of shooting
@@ -42,7 +39,7 @@ func _movementHandler(state: Physics2DDirectBodyState):
 
 # when called, this function shoots a single bullet from the fire point in
 # the direction specified by vector2 shotDirection
-func _fireShot(var bulletType, var shotDirection):
+func _fireShot(bulletType, shotDirection):
 	var theBullet = bulletType.instance()
 	theBullet.position = $FirePoint.global_position
 	theBullet.direction = shotDirection

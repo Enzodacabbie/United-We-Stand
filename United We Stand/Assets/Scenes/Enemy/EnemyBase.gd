@@ -15,7 +15,9 @@ func _ready():
 func _process(delta):
 	_tryDying()
 
-
+# movement has to be called in _integrate_forces in order to safely access physics state
+func _integrate_forces(state):
+	_movementHandler(state)
 
 # This function is intended to be called by other entities.
 # Decrements the enemy's current HP by amount (negative values will heal)
