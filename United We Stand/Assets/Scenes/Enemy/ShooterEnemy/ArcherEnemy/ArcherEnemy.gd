@@ -27,5 +27,6 @@ func _doShootingLogic():
 			$RapidCooldown.stop()
 
 func _on_RapidCooldown_timeout():
-	_fireShot(bullet, $FirePoint.global_position.direction_to(aggroTarget.global_position))
+	if aggroTarget != null:
+		_fireShot(bullet, $FirePoint.global_position.direction_to(aggroTarget.global_position))
 	shotsLoaded = clamp(shotsLoaded -1, 0, shotsPerVolley)
