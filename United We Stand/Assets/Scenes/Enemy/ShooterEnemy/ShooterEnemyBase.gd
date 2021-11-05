@@ -30,7 +30,7 @@ func _fireShot(var bulletType, var shotDirection):
 	var theBullet = bulletType.instance()
 	theBullet.position = $FirePoint.global_position
 	theBullet.direction = shotDirection
-	theBullet.look_at(aggroTarget.position)
+	theBullet.look_at(shotDirection)
 	owner.add_child(theBullet)
 
 func _on_AggroZone_body_entered(body):

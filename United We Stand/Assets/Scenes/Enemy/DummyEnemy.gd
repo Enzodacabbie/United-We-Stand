@@ -7,8 +7,7 @@ func _ready():
 	takeDamage(5) # to test healing, since healing can't increase past max
 
 
-func _process(delta):
-	# ._process(delta)
+func _process(_delta):
 	_updateHPBar()
 
 # the dummy enemy has an hp bar. This function makes that hp bar update.
