@@ -7,6 +7,9 @@ export (PackedScene) var bullet # reference to the bullet the player fires
 
 var shotReady = true # true when the player can fire another shot
 
+var _interactTargets = [] # array containing all interactable entities in range
+var _interactTarget # reference to the closest interactTarget in range
+
 export var maxHP = 15
 var _HP
 
@@ -21,7 +24,8 @@ func _process(delta):
 	move_and_collide(velocity*delta)
 	_tryDying()
 	_shootingHandler()
-	
+	_chooseInteractTarget()
+	_tryInteract()
 
 func _get_input():
 	velocity = Vector2()
@@ -55,3 +59,27 @@ func _tryDying():
 	if (_HP == 0):
 		print("heck")
 		takeDamage(-100)
+
+
+func _on_InteractZone_body_entered(body):
+	if(body.is_in_group("interactable")):
+		_interactTargets.push_back(body)
+
+func _on_InteractZone_body_exited(body):
+	_interactTargets.erase(body)
+
+
+func _chooseInteractTarget():
+	_interactTarget = null
+	var closestDistance = $"InteractZone/InteractZone Shape".shape.radius + 10
+	for target in _interactTargets:
+		target.call("toggleOff")
+		if global_position.distance_to(target.global_position) < closestDistance:
+			_interactTarget = target
+			closestDistance = global_position.distance_to(target.global_position)
+	if _interactTarget != null:
+		_interactTarget.call("toggleOn")
+
+func _tryInteract():
+	if Input.is_action_just_pressed("Interact") and _interactTarget != null:
+		_interactTarget.call("interact")
