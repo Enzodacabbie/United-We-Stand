@@ -15,14 +15,12 @@ func _ready():
 	._ready()
 	_stoppingToHeal = false
 
-func _process(delta):
-	# ._process(delta)
-	pass
 
 func _movementHandler(state: Physics2DDirectBodyState):
+	_chooseFollowTarget()
 	state.linear_velocity = Vector2.ZERO
 	if _followTarget != null and not _stoppingToHeal:
-		if global_position.distance_to(_followTarget.global_position) > followDistance:
+		if _followTarget != null and global_position.distance_to(_followTarget.global_position) > followDistance:
 			state.linear_velocity = moveSpeed * global_position.direction_to(_followTarget.global_position)
 
 # when a body enters the healing radius...
@@ -62,11 +60,10 @@ func _on_FollowZone_body_exited(body):
 	# take it off the stalk list
 	_moveTargets.erase(body)
 
-# ActTimer autostarts and is not oneshot. Every time the woman acts, she heals and then chooses a new target
+# ActTimer autostarts and is not oneshot. Every time the woman acts, she heals
 func _on_ActTimer_timeout():
 	if _moveTargets.size() > 1:
 		castHeal()
-		_chooseFollowTarget()
 		$MoveCooldown.start()
 		_stoppingToHeal = true
 
