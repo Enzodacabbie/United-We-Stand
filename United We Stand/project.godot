@@ -10,11 +10,17 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "RigidBody2D",
+"class": "AllyBase",
+"language": "GDScript",
+"path": "res://Assets/Scenes/Ally/AllyBase.gd"
+}, {
+"base": "RigidBody2D",
 "class": "EnemyBase",
 "language": "GDScript",
 "path": "res://Assets/Scenes/Enemy/EnemyBase.gd"
 } ]
 _global_script_class_icons={
+"AllyBase": "",
 "EnemyBase": ""
 }
 

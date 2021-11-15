@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Scenes/Enemy/HealerEnemy/HealerEnemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Scenes/Player/Player.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://icon.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Scenes/Enemy/ShooterEnemy/ArcherEnemy/ArcherEnemy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Scenes/Enemy/ShooterEnemy/MageEnemy/MageEnemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Scenes/Ally/AllyBase.tscn" type="PackedScene" id=7]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 31.4014
@@ -31,6 +32,7 @@ position = Vector2( 1014.26, 158.547 )
 position = Vector2( -401.622, 125.677 )
 script = ExtResource( 3 )
 message = "pee pee piss piss"
+allyType = ExtResource( 7 )
 
 [node name="Sprite" type="Sprite" parent="dummy interacter"]
 scale = Vector2( 1, -1 )
@@ -45,6 +47,7 @@ shape = SubResource( 1 )
 position = Vector2( -208.11, 267.533 )
 script = ExtResource( 3 )
 message = "not pee pee piss piss"
+allyType = ExtResource( 7 )
 
 [node name="Sprite" type="Sprite" parent="dummy interacter2"]
 scale = Vector2( 1, -1 )
