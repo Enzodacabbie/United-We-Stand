@@ -58,7 +58,6 @@ func _fireShot(bulletType, shotDirection):
 	theBullet.direction = shotDirection
 	theBullet.look_at(shotDirection)
 	get_parent().add_child(theBullet)
-	print(aggroTarget)
 
 
 func _on_AggroZone_body_entered(body):

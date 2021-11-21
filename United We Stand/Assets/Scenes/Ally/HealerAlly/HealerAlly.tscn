@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Assets/Scenes/Ally/HealerAlly.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Scenes/Ally/HealerAlly/HealerAlly.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Scenes/Ally/AllyBase.tscn" type="PackedScene" id=2]
 
 [node name="Ally" instance=ExtResource( 2 )]
