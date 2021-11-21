@@ -18,6 +18,8 @@ var _allies = [] # array of all allies
 export var maxHP = 15
 var _HP
 
+signal scored_takedown
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_HP = maxHP
@@ -51,7 +53,7 @@ func _movementHandler():
 		faceDirection = velocity.normalized()
 	
 	velocity = velocity.normalized() * speed
-	move_and_slide(velocity, Vector2.ZERO, false, 4, .785398, false)
+	velocity = move_and_slide(velocity, Vector2.ZERO, false, 4, .785398, false)
 
 func _pushAllies():
 	for index in get_slide_count():
@@ -69,6 +71,7 @@ func _shootingHandler():
 		$ShotCooldown.start()
 		var newBullet = bullet.instance() # instance a bullet and place it at the fire point
 		newBullet.transform = $FirePoint.get_global_transform()
+		newBullet.connect("scored_takedown", self, "_onTakedown")
 		owner.add_child(newBullet)
 
 
@@ -122,3 +125,6 @@ func _chooseInteractTarget():
 func _tryInteract():
 	if Input.is_action_just_pressed("Interact") and _interactTarget != null:
 		_interactTarget.call("interact", self)
+
+func _onTakedown():
+	emit_signal("scored_takedown")

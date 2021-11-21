@@ -29,11 +29,11 @@ func _doShootingLogic():
 		shotReady = false
 		$ShotCooldown.start()
 		_stopToShoot()
-		_fireShot(bullet, $FirePoint.global_position.direction_to(aggroTarget.global_position))
+		_fireShot(bullet, $FirePoint.position.direction_to(aggroTarget.position))
 
 func _movementHandler(state: Physics2DDirectBodyState):
 	if (!stoppingToShoot and (aggroTarget != null)) and !inRange:
-			state.linear_velocity = moveSpeed * global_position.direction_to(aggroTarget.global_position)
+		state.linear_velocity = moveSpeed * position.direction_to(aggroTarget.position)
 	else:
 		state.linear_velocity = Vector2.ZERO
 

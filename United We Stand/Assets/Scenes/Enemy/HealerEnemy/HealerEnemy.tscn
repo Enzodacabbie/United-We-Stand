@@ -16,11 +16,15 @@ script = ExtResource( 2 )
 modulate = Color( 1, 0.392157, 0.976471, 1 )
 
 [node name="HealZone" type="Area2D" parent="." index="2"]
+collision_layer = 0
+collision_mask = 8
 
 [node name="HealZoneShape" type="CollisionShape2D" parent="HealZone" index="0"]
 shape = SubResource( 1 )
 
 [node name="FollowZone" type="Area2D" parent="." index="3"]
+collision_layer = 0
+collision_mask = 8
 
 [node name="FollowZoneShape" type="CollisionShape2D" parent="FollowZone" index="0"]
 shape = SubResource( 2 )

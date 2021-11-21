@@ -5,7 +5,7 @@ extends Area2D
 export var velocity = 700
 var direction # Vector2 containing the direction the bullet should fly 
 
-
+signal scored_takedown # emitted when this bullet deals a finishing blow
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,5 +23,6 @@ func _physics_process(delta):
 
 func _on_Bullet_body_entered(body):
 	if(body.is_in_group("enemies")):
-		body.takeDamage(1)
+		if body.takeDamage(1):
+			emit_signal("scored_takedown")
 		queue_free()
