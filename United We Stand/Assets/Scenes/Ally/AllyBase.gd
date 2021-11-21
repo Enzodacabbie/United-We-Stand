@@ -24,15 +24,19 @@ func _process(delta):
 	_getDirectionPlayerIsFacing()
 
 func _integrate_forces(state):
+	_chooseAggroTarget()
 	_movementHandler(state)
 
 func _movementHandler(state: Physics2DDirectBodyState):
 	if aggroTarget != null:
-		_moveToTarget()
+		_moveToTarget(state)
 	else:
 		_followPlayer(state)
 
-func _moveToTarget():
+func _chooseAggroTarget():
+	pass
+
+func _moveToTarget(state):
 	pass
 
 func _followPlayer(state: Physics2DDirectBodyState):

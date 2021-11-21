@@ -44,7 +44,7 @@ func _fireShot(bulletType, shotDirection):
 	theBullet.position = $FirePoint.global_position
 	theBullet.direction = shotDirection
 	theBullet.look_at(shotDirection)
-	owner.add_child(theBullet)
+	get_parent().add_child(theBullet)
 
 func _stopToShoot():
 	stoppingToShoot = true

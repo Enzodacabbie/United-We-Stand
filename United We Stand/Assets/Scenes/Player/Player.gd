@@ -18,11 +18,14 @@ var _allies = [] # array of all allies
 export var maxHP = 15
 var _HP
 
+var _numberOfAllies
+
 signal scored_takedown
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_HP = maxHP
+	_numberOfAllies = 0
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -110,6 +113,7 @@ func spawnAlly(type: PackedScene, spawnPosition: Vector2, sendToFront: bool):
 func _updateAllyPositions():
 	for pos in range(_allies.size()):
 		_allies[pos].setPositionInLine(pos + 1)
+	_numberOfAllies = _allies.size()
 
 func _chooseInteractTarget():
 	_interactTarget = null

@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/Scenes/Ally/AllyBase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Scenes/Ally/ShooterAlly/ShooterAllyBase.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Scenes/Ally/ShooterAlly/AllyBullet.tscn" type="PackedScene" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 700.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 300.0
+
+[node name="Ally" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+bullet = ExtResource( 3 )
+
+[node name="AggroZone" type="Area2D" parent="." index="3"]
+collision_layer = 0
+collision_mask = 8
+
+[node name="AggroZone Shape" type="CollisionShape2D" parent="AggroZone" index="0"]
+shape = SubResource( 1 )
+
+[node name="InRangeZone" type="Area2D" parent="." index="4"]
+collision_layer = 0
+collision_mask = 8
+
+[node name="InRangeShape" type="CollisionShape2D" parent="InRangeZone" index="0"]
+shape = SubResource( 2 )
+
+[node name="FirePoint" type="Position2D" parent="." index="5"]
+
+[node name="ShotCooldown" type="Timer" parent="." index="6"]
+wait_time = 0.9
+one_shot = true
+
+[node name="MoveCooldown" type="Timer" parent="." index="7"]
+wait_time = 0.2
+
+[connection signal="body_entered" from="AggroZone" to="." method="_on_AggroZone_body_entered"]
+[connection signal="body_exited" from="AggroZone" to="." method="_on_AggroZone_body_exited"]
+[connection signal="body_entered" from="InRangeZone" to="." method="_on_InRangeZone_body_entered"]
+[connection signal="body_exited" from="InRangeZone" to="." method="_on_InRangeZone_body_exited"]
+[connection signal="timeout" from="ShotCooldown" to="." method="_on_ShotCooldown_timeout"]
+[connection signal="timeout" from="MoveCooldown" to="." method="_on_MoveCooldown_timeout"]
