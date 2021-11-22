@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Textures/black.png" type="Texture" id=1]
+[ext_resource path="res://Textures/blackfloor.png" type="Texture" id=2]
+
+[sub_resource type="TileSet" id=1]
+0/name = "blackfloor.png 0"
+0/texture = ExtResource( 2 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 160, 160 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+1/name = "black.png 1"
+1/texture = ExtResource( 1 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 320, 320 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource( 1 )
+format = 1
+tile_data = PoolIntArray( -196623, 1, 0, 65531, 1, 0, 0, 1, 0, 5, 1, 0, 10, 1, 0, 15, 1, 0, 20, 1, 0, 25, 1, 0, 393211, 1, 0, 327680, 1, 0, 327685, 1, 0, 327690, 1, 0, 327695, 1, 0, 327700, 1, 0, 327705, 1, 0, 720891, 1, 0, 655360, 1, 0, 655365, 1, 0, 655370, 1, 0, 655375, 1, 0, 655380, 1, 0, 655385, 1, 0, 1048571, 1, 0, 983040, 1, 0, 983045, 1, 0, 983050, 1, 0, 983055, 1, 0, 983060, 1, 0, 983065, 1, 0, 1376251, 1, 0, 1310720, 1, 0, 1310725, 1, 0, 1310730, 1, 0, 1310735, 1, 0, 1310740, 1, 0, 1310745, 1, 0 )
