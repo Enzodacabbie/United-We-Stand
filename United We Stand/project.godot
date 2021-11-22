@@ -30,6 +30,10 @@ config/name="United We Stand"
 run/main_scene="res://Assets/Scenes/Player/Player.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+PlayerData="*res://Assets/Scenes/Player/PlayerData.gd"
+
 [display]
 
 window/size/width=1280

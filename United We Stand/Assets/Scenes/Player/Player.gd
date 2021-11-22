@@ -16,7 +16,6 @@ var _interactTarget # reference to the closest interactTarget in range
 var _allies = [] # array of all allies
 
 export var maxHP = 15
-var _HP
 
 var _numberOfAllies
 
@@ -24,9 +23,14 @@ signal scored_takedown
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	_HP = maxHP
+	_spawnAllies()
+	_loadHP()
 	_numberOfAllies = 0
 
+func _loadHP():
+	if PlayerData.maxHP == null:
+		PlayerData.hp = maxHP
+		PlayerData.maxHP = maxHP
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -82,12 +86,13 @@ func _on_ShotCooldown_timeout():
 	shotReady = true
 
 func takeDamage(var amount):
-	_HP = clamp(_HP - amount, 0, maxHP)
+	PlayerData.hp = clamp(PlayerData.hp - amount, 0, maxHP)
 
 func _tryDying():
-	if (_HP == 0):
+	if (PlayerData.hp == 0):
 		print("heck")
 		takeDamage(-100)
+		get_tree(). reload_current_scene()
 
 
 func _on_InteractZone_body_entered(body):
@@ -96,6 +101,17 @@ func _on_InteractZone_body_entered(body):
 
 func _on_InteractZone_body_exited(body):
 	_interactTargets.erase(body)
+
+func _spawnAllies():
+	for index in PlayerData.allies:
+		call_deferred("spawnAlly", PlayerData.allyScene[index], position, false)
+
+func recruitAlly(type, spawnPosition: Vector2, sendToFront: bool):
+	if sendToFront:
+		PlayerData.allies.push_front(type)
+	else:
+		PlayerData.allies.push_back(type)
+	spawnAlly(PlayerData.allyScene[type], spawnPosition, sendToFront)
 
 func spawnAlly(type: PackedScene, spawnPosition: Vector2, sendToFront: bool):
 	var newAlly: AllyBase = type.instance()

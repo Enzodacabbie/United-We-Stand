@@ -5,6 +5,7 @@
 
 [node name="Ally" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+type = 2
 
 [node name="Sprite" parent="." index="1"]
 modulate = Color( 2, 0.01, 0.01, 1 )

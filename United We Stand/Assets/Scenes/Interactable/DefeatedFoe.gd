@@ -4,7 +4,8 @@ extends StaticBody2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-export (PackedScene) var allyType
+export (PlayerData.allyType) var allyType
+export var sendToFront = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,7 +17,7 @@ func _ready():
 #	pass
 
 func interact(player):
-	player.call("spawnAlly", allyType, position, false)
+	player.call("recruitAlly", allyType, position, sendToFront)
 	queue_free()
 
 func toggleOff():
