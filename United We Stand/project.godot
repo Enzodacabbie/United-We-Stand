@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "EnemyBase",
 "language": "GDScript",
 "path": "res://Assets/Scenes/Enemy/EnemyBase.gd"
+}, {
+"base": "EnemyBase",
+"class": "ShooterEnemyBase",
+"language": "GDScript",
+"path": "res://Assets/Scenes/Enemy/ShooterEnemy/ShooterEnemyBase.gd"
 } ]
 _global_script_class_icons={
 "AllyBase": "",
-"EnemyBase": ""
+"EnemyBase": "",
+"ShooterEnemyBase": ""
 }
 
 [application]

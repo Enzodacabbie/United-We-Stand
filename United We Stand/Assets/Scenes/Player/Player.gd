@@ -19,6 +19,10 @@ export var maxHP = 15
 
 var _numberOfAllies
 
+var hurtSound = preload("res://Assets/Sound/Sound Effects/Player_Hurt.wav")
+var shootSound = preload("res://Assets/Sound/Sound Effects/Magic_Sound.wav")
+var recruitSound = preload("res://Assets/Sound/Sound Effects/Recruit_Ally.wav")
+
 signal scored_takedown
 
 # Called when the node enters the scene tree for the first time.
@@ -97,6 +101,12 @@ func _shootingHandler():
 		newBullet.transform = $FirePoint.get_global_transform()
 		newBullet.connect("scored_takedown", self, "_onTakedown")
 		owner.add_child(newBullet)
+		
+		var audioPlayer = AudioStreamPlayer.new()
+		audioPlayer.set_stream(shootSound)
+		audioPlayer.set_volume_db(-8)
+		get_parent().add_child(audioPlayer)
+		audioPlayer.play()
 
 
 func _on_ShotCooldown_timeout():
@@ -104,6 +114,11 @@ func _on_ShotCooldown_timeout():
 
 func takeDamage(var amount):
 	PlayerData.hp = clamp(PlayerData.hp - amount, 0, maxHP)
+	var audioPlayer = AudioStreamPlayer.new()
+	audioPlayer.set_stream(hurtSound)
+	audioPlayer.set_volume_db(-8)
+	get_parent().add_child(audioPlayer)
+	audioPlayer.play()
 
 func _tryDying():
 	if (PlayerData.hp == 0):
@@ -161,6 +176,11 @@ func _chooseInteractTarget():
 func _tryInteract():
 	if Input.is_action_just_pressed("Interact") and _interactTarget != null:
 		_interactTarget.call("interact", self)
+		var audioPlayer = AudioStreamPlayer.new()
+		audioPlayer.set_stream(recruitSound)
+		audioPlayer.set_volume_db(-8)
+		get_parent().add_child(audioPlayer)
+		audioPlayer.play()
 
 func _onTakedown():
 	emit_signal("scored_takedown")

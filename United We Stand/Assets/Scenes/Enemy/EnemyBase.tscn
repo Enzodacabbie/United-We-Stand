@@ -24,9 +24,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Enemy" type="RigidBody2D" groups=[
-"enemies",
-]]
+[node name="Enemy" type="RigidBody2D" groups=["enemies"]]
 mode = 2
 script = ExtResource( 1 )
 defeated = ExtResource( 3 )
@@ -37,4 +35,5 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 4 )
+frame = 1
 playing = true

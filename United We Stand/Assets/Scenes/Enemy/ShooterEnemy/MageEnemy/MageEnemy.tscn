@@ -32,6 +32,8 @@ animations = [ {
 
 [node name="Enemy" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+maxHP = 5
+sendToFront = false
 type = 2
 defeatedSprite = ExtResource( 5 )
 bullet = ExtResource( 3 )
@@ -39,3 +41,4 @@ bullet = ExtResource( 3 )
 [node name="Sprite" parent="." index="1"]
 modulate = Color( 1, 1, 1, 1 )
 frames = SubResource( 5 )
+frame = 0

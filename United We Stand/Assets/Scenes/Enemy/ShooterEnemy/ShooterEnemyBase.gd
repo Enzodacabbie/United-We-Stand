@@ -1,5 +1,5 @@
 extends EnemyBase
-
+class_name ShooterEnemyBase
 
 # Declare member variables here.
 var aggroTarget # holds reference to the current aggro target of the enemy

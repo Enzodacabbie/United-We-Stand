@@ -7,11 +7,16 @@ var _HP
 
 var random = RandomNumberGenerator.new()
 
+enum allyType {
+	HEALER,
+	ARCHER,
+	MAGE
+}
 
 export var sendToFront = false
 
 export (PackedScene) var defeated
-export (PlayerData.allyType) var type
+export (allyType) var type
 
 export (StreamTexture) var defeatedSprite
 
