@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Sprites/UI/HP Bar Back.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Sprites/UI/HP Bar Red.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Scenes/UI/HP Bar.gd" type="Script" id=3]
+
+[node name="HP Bar" type="TextureProgress"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_scale = Vector2( 0.04, 0.04 )
+max_value = 90.0
+value = 90.0
+texture_under = ExtResource( 1 )
+texture_progress = ExtResource( 2 )
+texture_progress_offset = Vector2( 248, 60 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

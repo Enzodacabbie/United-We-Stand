@@ -56,7 +56,7 @@ func _fireShot(bulletType, shotDirection):
 	var theBullet = bulletType.instance()
 	theBullet.position = $FirePoint.global_position
 	theBullet.direction = shotDirection
-	theBullet.look_at(shotDirection)
+	theBullet.look_at(position + shotDirection)
 	get_parent().add_child(theBullet)
 
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/Scenes/Tilemaps/Boss room.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Scenes/Enemy/DemonKing/DemonKing.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Scenes/Player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Scenes/UI/HP Bar.tscn" type="PackedScene" id=4]
 
 [node name="Node2D" type="Node2D"]
 
@@ -14,3 +15,7 @@ position = Vector2( 208, -20 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 206.674, 210.132 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HP Bar" parent="CanvasLayer" instance=ExtResource( 4 )]

@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
+[ext_resource path="res://Assets/Scenes/UI/HP Bar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Scenes/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Scenes/Interactable/DefeatedFoe.tscn" type="PackedScene" id=3]
 [ext_resource path="res://icon.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Scenes/Enemy/ShooterEnemy/ArcherEnemy/ArcherEnemy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Scenes/Enemy/ShooterEnemy/MageEnemy/MageEnemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Scenes/UI/TPButton.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/Scenes/Enemy/HealerEnemy/HealerEnemy.tscn" type="PackedScene" id=10]
 
 [node name="Node2D" type="Node2D"]
@@ -26,17 +28,21 @@ allyType = 2
 [node name="Enemy3" parent="." instance=ExtResource( 10 )]
 position = Vector2( -265.822, -174.985 )
 
-[node name="Enemy" parent="." groups=[
-"enemies",
-] instance=ExtResource( 5 )]
+[node name="Enemy" parent="." groups=["enemies"] instance=ExtResource( 5 )]
 position = Vector2( 508.264, 23.6649 )
 mode = 2
 defeated = ExtResource( 3 )
 
-[node name="Enemy2" parent="." groups=[
-"enemies",
-] instance=ExtResource( 6 )]
+[node name="Enemy2" parent="." groups=["enemies"] instance=ExtResource( 6 )]
 position = Vector2( 157.61, 205.472 )
 mode = 2
 defeated = ExtResource( 3 )
 defeatedSprite = ExtResource( 4 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HP Bar" parent="CanvasLayer" instance=ExtResource( 1 )]
+margin_right = 2598.0
+margin_bottom = 533.0
+
+[node name="TPButton" parent="CanvasLayer" instance=ExtResource( 7 )]
