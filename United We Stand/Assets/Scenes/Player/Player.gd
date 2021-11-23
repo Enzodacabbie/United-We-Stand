@@ -34,14 +34,31 @@ func _loadHP():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
 	_tryDying()
 	_shootingHandler()
 	_chooseInteractTarget()
 	_tryInteract()
+	
+	
+
+func _animationHandler(): 
+	if velocity == Vector2.ZERO:
+		$AnimatedSprite.stop()
+	else:
+		$AnimatedSprite.play()
+	if abs(velocity.x) > abs(velocity.y):
+		if velocity.x > 0:
+			$AnimatedSprite.animation = "walk right"
+		else:
+			$AnimatedSprite.animation = "walk left"
+	elif velocity.y < 0:
+		$AnimatedSprite.animation = "walk up"
+	else:
+		$AnimatedSprite.animation = "walk down"
 
 func _physics_process(delta):
 	_movementHandler()
+	_animationHandler()
 	_pushAllies()
 
 func _movementHandler():
