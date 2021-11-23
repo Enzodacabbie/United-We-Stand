@@ -5,6 +5,7 @@
 
 [node name="Enemy" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+type = 1
 
 [node name="Sprite" parent="." index="1"]
 modulate = Color( 0.0196078, 0.027451, 0.501961, 1 )

@@ -5,10 +5,20 @@ class_name EnemyBase
 export var maxHP = 5
 var _HP
 
+var random = RandomNumberGenerator.new()
+
+
+export var sendToFront = false
+
+export (PackedScene) var defeated
+export (PlayerData.allyType) var type
+
+export (StreamTexture) var defeatedSprite
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_HP = maxHP
+	random.randomize()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -35,5 +45,13 @@ func _movementHandler(state: Physics2DDirectBodyState):
 
 func _tryDying():
 	if (_HP == 0):
+		var bodyRandomVariable = random.randi_range(0,3)
+		if bodyRandomVariable == 0:
+			var deadBody = defeated.instance()
+			deadBody.position = position
+			deadBody.allyType = type
+			deadBody.sendToFront = sendToFront
+			deadBody.get_node("Sprite").texture = defeatedSprite
+			get_parent().add_child(deadBody)
 		queue_free()
 

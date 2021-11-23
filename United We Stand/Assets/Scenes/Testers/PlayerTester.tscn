@@ -55,18 +55,12 @@ sendToFront = true
 position = Vector2( -513.986, 316.728 )
 allyType = 2
 
-[node name="Enemy" parent="." groups=[
-"enemies",
-] instance=ExtResource( 6 )]
+[node name="Enemy" parent="." instance=ExtResource( 6 )]
 position = Vector2( 766.177, 137.007 )
-mode = 2
 bullet = SubResource( 2 )
 
-[node name="Enemy2" parent="." groups=[
-"enemies",
-] instance=ExtResource( 5 )]
+[node name="Enemy2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 921.842, 482.424 )
-mode = 2
 bullet = SubResource( 3 )
 
 [node name="Enemy3" parent="." instance=ExtResource( 10 )]
