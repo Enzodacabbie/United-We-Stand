@@ -6,6 +6,9 @@ var random = RandomNumberGenerator.new()
 
 var player
 
+export var maxHP = 450
+var _HP
+
 var fireSpawners = []
 var haloSpawners = []
 var targets = []
@@ -52,6 +55,8 @@ func _ready():
 		$Target7,
 		$Target8
 	]
+	
+	_HP = maxHP
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -93,6 +98,14 @@ func _shootBomb():
 	newBullet.position = haloSpawners[spawnerIndex].global_position
 	newBullet.targetPosition = targets[targetIndex].global_position
 	get_parent().add_child(newBullet)
+
+func takeDamage(var amount):
+	_HP = clamp(_HP - amount, 0, maxHP)
+
+func _tryDying():
+	if _HP == 0:
+		pass
+	pass
 
 func _on_WaveTimer_timeout():
 	if wavesLeft > 0:
