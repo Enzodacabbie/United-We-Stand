@@ -2,8 +2,9 @@ extends Area2D
 
 
 # Declare member variables here. Examples:
-export var velocity = 1000
+export var velocity = 600
 export var waveSpeed = 11
+export var waveLength = 2
 var initialDirection = Vector2()
 var currentDirection = Vector2()
 
@@ -14,13 +15,14 @@ var timeAlive = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# for testing
 	if initialDirection == Vector2.ZERO:
 		initialDirection = Vector2(1,.5).normalized()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	timeAlive += delta
+	timeAlive += waveLength * delta
 	currentDirection = initialDirection.rotated(sin(timeAlive * waveSpeed))
 	position += currentDirection * velocity * delta
 

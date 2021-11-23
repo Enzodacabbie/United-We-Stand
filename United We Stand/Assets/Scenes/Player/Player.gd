@@ -92,7 +92,7 @@ func _tryDying():
 	if (PlayerData.hp == 0):
 		print("heck")
 		takeDamage(-100)
-		get_tree(). reload_current_scene()
+		get_tree().reload_current_scene()
 
 
 func _on_InteractZone_body_entered(body):

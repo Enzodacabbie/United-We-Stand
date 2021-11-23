@@ -2,7 +2,7 @@ extends Area2D
 
 
 # Declare member variables here. 
-export var velocity = 700
+export var velocity = 400
 var targetPosition
 
 var damage = 2
@@ -20,7 +20,8 @@ func explode(numberOfShots):
 	for n in numberOfShots:
 		var newBullet = smallBullet.instance()
 		var rotationAngle = PI * 2 / numberOfShots * n
-		newBullet.direction = newBullet.direction.rotated(rotationAngle)
+		newBullet.position = position
+		newBullet.direction = Vector2.RIGHT.rotated(rotationAngle)
 		get_parent().add_child(newBullet)
 	queue_free()
 

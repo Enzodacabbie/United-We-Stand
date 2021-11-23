@@ -1,3 +1,232 @@
-[gd_scene format=2]
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://Assets/Sprites/DemonKing/DemonKingSheet.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Sprites/DemonKing/FireSpawner.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/DemonKing/HaloSpawner.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Scenes/Enemy/DemonKing/DemonKing.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Scenes/Enemy/DemonKing/Projectiles/TeardropBullet.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Scenes/Enemy/DemonKing/Projectiles/RegularBullet.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Scenes/Enemy/DemonKing/Projectiles/BombBullet.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/Scenes/Enemy/DemonKing/Projectiles/WaveBullet.tscn" type="PackedScene" id=8]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 120, 40 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 120, 0, 120, 40 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 240, 0, 120, 40 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 360, 0, 120, 40 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 19.9629
+height = 51.3583
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 2 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ SubResource( 7 ), SubResource( 8 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 3 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 3 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=13]
+animations = [ {
+"frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 10 ), SubResource( 12 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [node name="DemonKing" type="RigidBody2D"]
+collision_layer = 8
+script = ExtResource( 4 )
+teardropBullet = ExtResource( 5 )
+normalBullet = ExtResource( 6 )
+waveBullet = ExtResource( 8 )
+bombBullet = ExtResource( 7 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 5 )
+frame = 1
+playing = true
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource( 6 )
+
+[node name="FlameSpawner1" type="Position2D" parent="."]
+position = Vector2( 160, 68 )
+
+[node name="Sprite" type="AnimatedSprite" parent="FlameSpawner1"]
+position = Vector2( 2.83167, -0.943878 )
+frames = SubResource( 9 )
+frame = 1
+playing = true
+
+[node name="FlameSpawner2" type="Position2D" parent="."]
+position = Vector2( 160, 388 )
+
+[node name="Sprite" type="AnimatedSprite" parent="FlameSpawner2"]
+frames = SubResource( 9 )
+playing = true
+
+[node name="FlameSpawner3" type="Position2D" parent="."]
+position = Vector2( -160, 68 )
+
+[node name="Sprite" type="AnimatedSprite" parent="FlameSpawner3"]
+frames = SubResource( 9 )
+playing = true
+
+[node name="FlameSpawner4" type="Position2D" parent="."]
+position = Vector2( -160, 388 )
+
+[node name="Sprite" type="AnimatedSprite" parent="FlameSpawner4"]
+frames = SubResource( 9 )
+playing = true
+
+[node name="HaloSpawner1" type="Position2D" parent="."]
+position = Vector2( 64, 36 )
+
+[node name="Sprite" type="AnimatedSprite" parent="HaloSpawner1"]
+position = Vector2( -0.943909, -0.943878 )
+frames = SubResource( 13 )
+frame = 3
+playing = true
+
+[node name="HaloSpawner2" type="Position2D" parent="."]
+position = Vector2( 192, 164 )
+
+[node name="Sprite" type="AnimatedSprite" parent="HaloSpawner2"]
+position = Vector2( 0, -0.943878 )
+frames = SubResource( 13 )
+frame = 2
+playing = true
+
+[node name="HaloSpawner3" type="Position2D" parent="."]
+position = Vector2( 192, 292 )
+
+[node name="Sprite" type="AnimatedSprite" parent="HaloSpawner3"]
+position = Vector2( 0, -0.943878 )
+frames = SubResource( 13 )
+frame = 1
+playing = true
+
+[node name="HaloSpawner4" type="Position2D" parent="."]
+position = Vector2( 64, 420 )
+
+[node name="Sprite" type="AnimatedSprite" parent="HaloSpawner4"]
+position = Vector2( 0, -0.943878 )
+frames = SubResource( 13 )
+frame = 1
+playing = true
+
+[node name="HaloSpawner5" type="Position2D" parent="."]
+position = Vector2( -64, 36 )
+
+[node name="Sprite" type="AnimatedSprite" parent="HaloSpawner5"]
+position = Vector2( -0.943909, -0.943878 )
+frames = SubResource( 13 )
+frame = 2
+playing = true
+
+[node name="HaloSpawner6" type="Position2D" parent="."]
+position = Vector2( -192, 164 )
+
+[node name="Sprite" type="AnimatedSprite" parent="HaloSpawner6"]
+position = Vector2( 0, -0.943878 )
+frames = SubResource( 13 )
+frame = 1
+playing = true
+
+[node name="HaloSpawner7" type="Position2D" parent="."]
+position = Vector2( -192, 292 )
+
+[node name="Sprite" type="AnimatedSprite" parent="HaloSpawner7"]
+position = Vector2( 0, -0.943878 )
+frames = SubResource( 13 )
+playing = true
+
+[node name="HaloSpawner8" type="Position2D" parent="."]
+position = Vector2( -64, 420 )
+
+[node name="Sprite" type="AnimatedSprite" parent="HaloSpawner8"]
+position = Vector2( 0, -0.943878 )
+frames = SubResource( 13 )
+playing = true
+
+[node name="Target1" type="Position2D" parent="."]
+position = Vector2( 64, 100 )
+
+[node name="Target2" type="Position2D" parent="."]
+position = Vector2( 128, 164 )
+
+[node name="Target3" type="Position2D" parent="."]
+position = Vector2( 128, 292 )
+
+[node name="Target4" type="Position2D" parent="."]
+position = Vector2( 64, 356 )
+
+[node name="Target5" type="Position2D" parent="."]
+position = Vector2( -64, 100 )
+
+[node name="Target6" type="Position2D" parent="."]
+position = Vector2( -128, 164 )
+
+[node name="Target7" type="Position2D" parent="."]
+position = Vector2( -128, 292 )
+
+[node name="Target8" type="Position2D" parent="."]
+position = Vector2( -64, 356 )
+
+[node name="FireballTimer" type="Timer" parent="."]
+wait_time = 3.5
+autostart = true
+
+[node name="WaveTimer" type="Timer" parent="."]
+wait_time = 0.6
+autostart = true
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="FireballTimer" to="." method="_on_FireballTimer_timeout"]
+[connection signal="timeout" from="WaveTimer" to="." method="_on_WaveTimer_timeout"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_AttackTimer_timeout"]

@@ -2,7 +2,7 @@ extends Area2D
 
 
 # Declare member variables here. 
-export var velocity = 700
+export var velocity = 500
 var direction
 
 var damage = 1
