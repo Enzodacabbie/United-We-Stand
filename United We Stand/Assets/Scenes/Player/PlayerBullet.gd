@@ -11,7 +11,7 @@ signal scored_takedown # emitted when this bullet deals a finishing blow
 func _ready():
 	# set the bullet's fly direction to where the mouse is at time of bullet instance
 	direction = position.direction_to(get_global_mouse_position())
-	$Sprite.rotate(atan(direction.y / direction.x))
+	$Sprite.rotation_degrees = rad2deg(Vector2.ZERO.angle_to(direction))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
