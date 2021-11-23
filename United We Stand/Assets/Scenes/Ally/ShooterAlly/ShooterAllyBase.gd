@@ -9,6 +9,8 @@ var shotReady
 
 export (PackedScene) var bullet
 
+export (AudioStream) var shootSound
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	shotReady = true
@@ -58,6 +60,12 @@ func _fireShot(bulletType, shotDirection):
 	theBullet.direction = shotDirection
 	theBullet.look_at(position + shotDirection)
 	get_parent().add_child(theBullet)
+	
+	var audioPlayer = AudioStreamPlayer.new()
+	audioPlayer.set_stream(shootSound)
+	audioPlayer.set_volume_db(-8)
+	get_parent().add_child(audioPlayer)
+	audioPlayer.play()
 
 
 func _on_AggroZone_body_entered(body):

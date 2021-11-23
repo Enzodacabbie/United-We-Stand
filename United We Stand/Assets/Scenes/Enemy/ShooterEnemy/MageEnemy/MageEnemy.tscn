@@ -41,4 +41,3 @@ bullet = ExtResource( 3 )
 [node name="Sprite" parent="." index="1"]
 modulate = Color( 1, 1, 1, 1 )
 frames = SubResource( 5 )
-frame = 0

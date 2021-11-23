@@ -5,6 +5,7 @@ extends "res://Assets/Scenes/Ally/ShooterAlly/ShooterAllyBase.gd"
 export var bulletAngle = 15 # in degrees
 export var numberOfBullets = 5 # per spreadshot
 
+
 var bulletAngleRad # just a helpful in between to convert the degrees to radians
 
 func _ready():
