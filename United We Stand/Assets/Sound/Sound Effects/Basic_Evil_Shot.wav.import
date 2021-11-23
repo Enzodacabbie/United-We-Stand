@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Basic_Evil_Shot.wav-34e345da1b9f8e1b480b7cf81a98d64e.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/Sound Effects/Basic_Evil_Shot.wav"
+dest_files=[ "res://.import/Basic_Evil_Shot.wav-34e345da1b9f8e1b480b7cf81a98d64e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

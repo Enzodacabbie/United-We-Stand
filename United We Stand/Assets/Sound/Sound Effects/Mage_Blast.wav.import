@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Mage_Blast.wav-0df973de2d79952be9e61e5a6c118507.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/Sound Effects/Mage_Blast.wav"
+dest_files=[ "res://.import/Mage_Blast.wav-0df973de2d79952be9e61e5a6c118507.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
