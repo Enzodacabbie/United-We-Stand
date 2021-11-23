@@ -24,3 +24,5 @@ func _on_Bullet_body_entered(body):
 		if body.takeDamage(1):
 			emit_signal("scored_takedown")
 		queue_free()
+	else:
+		queue_free()
