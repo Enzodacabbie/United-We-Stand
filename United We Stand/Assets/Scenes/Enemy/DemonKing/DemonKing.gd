@@ -6,7 +6,7 @@ var random = RandomNumberGenerator.new()
 
 var player
 
-export var maxHP = 450
+export var maxHP = 20
 var _HP
 
 var fireSpawners = []
@@ -62,6 +62,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	attack()
+	_tryDying()
 
 func attack():
 	if attackReady:
@@ -104,8 +105,7 @@ func takeDamage(var amount):
 
 func _tryDying():
 	if _HP == 0:
-		pass
-	pass
+		get_tree().change_scene("res://Assets/Scenes/Game/Victory Scene.tscn")
 
 func _on_WaveTimer_timeout():
 	if wavesLeft > 0:

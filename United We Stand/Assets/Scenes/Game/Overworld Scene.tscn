@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Assets/Scenes/Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Scenes/Tilemaps/newWorld.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Scenes/Enemy/Spawner/Spawner.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Scenes/Enemy/ShooterEnemy/ArcherEnemy/ArcherEnemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Scenes/Enemy/ShooterEnemy/MageEnemy/MageEnemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Scenes/Enemy/HealerEnemy/HealerEnemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Scenes/UI/HP Bar.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/Scenes/UI/TPButton.tscn" type="PackedScene" id=8]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Node2D" parent="." instance=ExtResource( 2 )]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 110.403, -471.381 )
+
+[node name="Spawner" parent="." instance=ExtResource( 3 )]
+position = Vector2( -31.6832, -96.2639 )
+enemyType = ExtResource( 6 )
+
+[node name="Spawner2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 82.7505, -266.825 )
+enemyType = ExtResource( 4 )
+
+[node name="Spawner3" parent="." instance=ExtResource( 3 )]
+position = Vector2( -100.959, -284.871 )
+enemyType = ExtResource( 5 )
+
+[node name="Spawner4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 513.96, -117.303 )
+enemyType = ExtResource( 6 )
+
+[node name="Spawner5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 365.747, 5.92993 )
+enemyType = ExtResource( 4 )
+
+[node name="Spawner6" parent="." instance=ExtResource( 3 )]
+position = Vector2( 355.985, -231.892 )
+enemyType = ExtResource( 5 )
+
+[node name="Spawner7" parent="." instance=ExtResource( 3 )]
+position = Vector2( 46.277, -627.601 )
+enemyType = ExtResource( 6 )
+
+[node name="Spawner8" parent="." instance=ExtResource( 3 )]
+position = Vector2( 199.403, -735.852 )
+enemyType = ExtResource( 4 )
+
+[node name="Spawner9" parent="." instance=ExtResource( 3 )]
+position = Vector2( -104.758, -741.856 )
+enemyType = ExtResource( 5 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HP Bar" parent="CanvasLayer" instance=ExtResource( 7 )]
+margin_right = 2598.0
+margin_bottom = 533.0
+
+[node name="TPButton" parent="CanvasLayer" instance=ExtResource( 8 )]

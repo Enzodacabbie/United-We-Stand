@@ -108,8 +108,7 @@ func takeDamage(var amount):
 func _tryDying():
 	if (PlayerData.hp == 0):
 		print("heck")
-		takeDamage(-100)
-		get_tree().reload_current_scene()
+		get_tree().change_scene("res://Assets/Scenes/Game/GameOver Scene.tscn")
 
 
 func _on_InteractZone_body_entered(body):

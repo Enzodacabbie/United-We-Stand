@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/well (2).png-fecc2f82a278697ae7c9972f0a978ce6.stex"
+path="res://.import/GameOver.png-d30f904299ede3dfb832be327d7101cd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/well (2).png"
-dest_files=[ "res://.import/well (2).png-fecc2f82a278697ae7c9972f0a978ce6.stex" ]
+source_file="res://Assets/Sprites/Menus/Smol/GameOver.png"
+dest_files=[ "res://.import/GameOver.png-d30f904299ede3dfb832be327d7101cd.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
