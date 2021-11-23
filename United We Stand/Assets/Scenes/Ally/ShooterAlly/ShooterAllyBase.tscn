@@ -5,10 +5,10 @@
 [ext_resource path="res://Assets/Scenes/Ally/ShooterAlly/AllyBullet.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 700.0
+radius = 224.0
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 300.0
+radius = 64.0
 
 [node name="Ally" instance=ExtResource( 1 )]
 script = ExtResource( 2 )

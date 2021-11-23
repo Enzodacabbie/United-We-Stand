@@ -4,7 +4,7 @@
 [ext_resource path="res://Assets/Scenes/Interactable/DefeatedFoe.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 32.1173
+radius = 8.0
 
 [node name="DefeatedFoe" type="StaticBody2D" groups=[
 "interactable",

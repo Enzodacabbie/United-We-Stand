@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Assets/Scenes/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Scenes/Interactable/DefeatedFoe.tscn" type="PackedScene" id=3]
 [ext_resource path="res://icon.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Scenes/Enemy/ShooterEnemy/ArcherEnemy/ArcherEnemy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Scenes/Enemy/ShooterEnemy/MageEnemy/MageEnemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Scenes/Enemy/HealerEnemy/HealerEnemy.tscn" type="PackedScene" id=10]
 
 [node name="Node2D" type="Node2D"]
 
@@ -22,18 +23,20 @@ sendToFront = true
 position = Vector2( -513.986, 316.728 )
 allyType = 2
 
+[node name="Enemy3" parent="." instance=ExtResource( 10 )]
+position = Vector2( -265.822, -174.985 )
+
 [node name="Enemy" parent="." groups=[
 "enemies",
 ] instance=ExtResource( 5 )]
-position = Vector2( 858.868, 218.445 )
+position = Vector2( 508.264, 23.6649 )
 mode = 2
 defeated = ExtResource( 3 )
-defeatedSprite = ExtResource( 4 )
 
 [node name="Enemy2" parent="." groups=[
 "enemies",
 ] instance=ExtResource( 6 )]
-position = Vector2( 484.242, 627.994 )
+position = Vector2( 157.61, 205.472 )
 mode = 2
 defeated = ExtResource( 3 )
 defeatedSprite = ExtResource( 4 )

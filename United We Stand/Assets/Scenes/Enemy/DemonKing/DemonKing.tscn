@@ -86,7 +86,6 @@ bombBullet = ExtResource( 7 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 5 )
-frame = 1
 playing = true
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
@@ -99,7 +98,6 @@ position = Vector2( 160, 68 )
 [node name="Sprite" type="AnimatedSprite" parent="FlameSpawner1"]
 position = Vector2( 2.83167, -0.943878 )
 frames = SubResource( 9 )
-frame = 1
 playing = true
 
 [node name="FlameSpawner2" type="Position2D" parent="."]
@@ -107,6 +105,7 @@ position = Vector2( 160, 388 )
 
 [node name="Sprite" type="AnimatedSprite" parent="FlameSpawner2"]
 frames = SubResource( 9 )
+frame = 1
 playing = true
 
 [node name="FlameSpawner3" type="Position2D" parent="."]
@@ -114,6 +113,7 @@ position = Vector2( -160, 68 )
 
 [node name="Sprite" type="AnimatedSprite" parent="FlameSpawner3"]
 frames = SubResource( 9 )
+frame = 1
 playing = true
 
 [node name="FlameSpawner4" type="Position2D" parent="."]
@@ -121,6 +121,7 @@ position = Vector2( -160, 388 )
 
 [node name="Sprite" type="AnimatedSprite" parent="FlameSpawner4"]
 frames = SubResource( 9 )
+frame = 1
 playing = true
 
 [node name="HaloSpawner1" type="Position2D" parent="."]
@@ -129,7 +130,7 @@ position = Vector2( 64, 36 )
 [node name="Sprite" type="AnimatedSprite" parent="HaloSpawner1"]
 position = Vector2( -0.943909, -0.943878 )
 frames = SubResource( 13 )
-frame = 3
+frame = 2
 playing = true
 
 [node name="HaloSpawner2" type="Position2D" parent="."]
@@ -138,7 +139,7 @@ position = Vector2( 192, 164 )
 [node name="Sprite" type="AnimatedSprite" parent="HaloSpawner2"]
 position = Vector2( 0, -0.943878 )
 frames = SubResource( 13 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="HaloSpawner3" type="Position2D" parent="."]
@@ -147,7 +148,6 @@ position = Vector2( 192, 292 )
 [node name="Sprite" type="AnimatedSprite" parent="HaloSpawner3"]
 position = Vector2( 0, -0.943878 )
 frames = SubResource( 13 )
-frame = 1
 playing = true
 
 [node name="HaloSpawner4" type="Position2D" parent="."]
@@ -156,7 +156,6 @@ position = Vector2( 64, 420 )
 [node name="Sprite" type="AnimatedSprite" parent="HaloSpawner4"]
 position = Vector2( 0, -0.943878 )
 frames = SubResource( 13 )
-frame = 1
 playing = true
 
 [node name="HaloSpawner5" type="Position2D" parent="."]
@@ -165,7 +164,7 @@ position = Vector2( -64, 36 )
 [node name="Sprite" type="AnimatedSprite" parent="HaloSpawner5"]
 position = Vector2( -0.943909, -0.943878 )
 frames = SubResource( 13 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="HaloSpawner6" type="Position2D" parent="."]
@@ -174,7 +173,6 @@ position = Vector2( -192, 164 )
 [node name="Sprite" type="AnimatedSprite" parent="HaloSpawner6"]
 position = Vector2( 0, -0.943878 )
 frames = SubResource( 13 )
-frame = 1
 playing = true
 
 [node name="HaloSpawner7" type="Position2D" parent="."]
@@ -183,6 +181,7 @@ position = Vector2( -192, 292 )
 [node name="Sprite" type="AnimatedSprite" parent="HaloSpawner7"]
 position = Vector2( 0, -0.943878 )
 frames = SubResource( 13 )
+frame = 3
 playing = true
 
 [node name="HaloSpawner8" type="Position2D" parent="."]
@@ -191,6 +190,7 @@ position = Vector2( -64, 420 )
 [node name="Sprite" type="AnimatedSprite" parent="HaloSpawner8"]
 position = Vector2( 0, -0.943878 )
 frames = SubResource( 13 )
+frame = 3
 playing = true
 
 [node name="Target1" type="Position2D" parent="."]

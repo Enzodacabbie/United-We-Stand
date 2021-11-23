@@ -1,11 +1,35 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Scenes/Ally/ShooterAlly/ShooterAllyBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Scenes/Ally/ShooterAlly/MageAlly/MageAlly.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Sprites/Characters/Ally_Mage_Down.png" type="Texture" id=3]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 20, 20 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 3 )
+region = Rect2( 20, 0, 20, 20 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 3 )
+region = Rect2( 40, 0, 20, 20 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 3 )
+region = Rect2( 60, 0, 20, 20 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [node name="Ally" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-type = 2
 
 [node name="Sprite" parent="." index="1"]
-modulate = Color( 2, 0.01, 0.01, 1 )
+frames = SubResource( 5 )

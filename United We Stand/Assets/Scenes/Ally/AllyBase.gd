@@ -11,7 +11,7 @@ var aggroTarget
 
 export var moveSpeed = 390
 
-export var followDistance = 200
+export var followDistance = 64
 var positionInLine = 0
 
 # Called when the node enters the scene tree for the first time.
