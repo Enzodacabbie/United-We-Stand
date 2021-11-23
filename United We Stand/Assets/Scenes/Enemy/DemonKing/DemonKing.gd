@@ -6,7 +6,7 @@ var random = RandomNumberGenerator.new()
 
 var player
 
-export var maxHP = 20
+export var maxHP = 300
 var _HP
 
 var fireSpawners = []
@@ -21,6 +21,8 @@ export (PackedScene) var teardropBullet
 export (PackedScene) var normalBullet
 export (PackedScene) var waveBullet
 export (PackedScene) var bombBullet
+
+export (AudioStream) var hurtSound
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -102,6 +104,11 @@ func _shootBomb():
 
 func takeDamage(var amount):
 	_HP = clamp(_HP - amount, 0, maxHP)
+	var audioPlayer = AudioStreamPlayer.new()
+	audioPlayer.set_stream(hurtSound)
+	audioPlayer.set_volume_db(-8)
+	get_parent().add_child(audioPlayer)
+	audioPlayer.play()
 
 func _tryDying():
 	if _HP == 0:

@@ -12,12 +12,18 @@ var damage = 1
 
 var timeAlive = 0
 
-
+export (AudioStream) var shootSound
+	
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# for testing
 	if initialDirection == Vector2.ZERO:
 		initialDirection = Vector2(1,.5).normalized()
+	var audioPlayer = AudioStreamPlayer.new()
+	audioPlayer.set_stream(shootSound)
+	audioPlayer.set_volume_db(-8)
+	get_parent().add_child(audioPlayer)
+	audioPlayer.play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

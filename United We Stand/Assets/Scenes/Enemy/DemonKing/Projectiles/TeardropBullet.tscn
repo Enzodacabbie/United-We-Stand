@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Sprites/DemonKing/TeardropBullet.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Scenes/Enemy/ShooterEnemy/EnemyBullet.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Sound/Sound Effects/Subtle_Fireball.wav" type="AudioStream" id=3]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
@@ -33,10 +34,11 @@ radius = 12.8758
 [node name="Bullet" type="Area2D"]
 script = ExtResource( 2 )
 velocity = 200
+shootSound = ExtResource( 3 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 5 )
-frame = 3
+frame = 1
 playing = true
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
