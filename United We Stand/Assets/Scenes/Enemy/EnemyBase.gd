@@ -13,6 +13,9 @@ enum allyType {
 	MAGE
 }
 
+export (AudioStream) var hurtSound
+export (AudioStream) var deathSound
+
 export var sendToFront = false
 
 export (PackedScene) var defeated
@@ -39,6 +42,13 @@ func _integrate_forces(state):
 # returns true if the enemy dies
 func takeDamage(var amount):
 	_HP = clamp(_HP - amount, 0, maxHP)
+	
+	var audioPlayer = AudioStreamPlayer.new()
+	audioPlayer.set_stream(hurtSound)
+	audioPlayer.set_volume_db(-8)
+	get_parent().add_child(audioPlayer)
+	audioPlayer.play()
+	
 	if _HP == 0:
 		return true
 	else:
@@ -58,5 +68,10 @@ func _tryDying():
 			deadBody.sendToFront = sendToFront
 			deadBody.get_node("Sprite").texture = defeatedSprite
 			get_parent().add_child(deadBody)
+		var audioPlayer = AudioStreamPlayer.new()
+		audioPlayer.set_stream(deathSound)
+		audioPlayer.set_volume_db(-20)
+		get_parent().add_child(audioPlayer)
+		audioPlayer.play()
 		queue_free()
 

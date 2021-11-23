@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/Scenes/Enemy/ShooterEnemy/ShooterEnemyBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Scenes/Enemy/ShooterEnemy/MageEnemy/MageEnemy.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Scenes/Enemy/ShooterEnemy/MageEnemy/MageEnemyBullet.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Sprites/Characters/Enemy_Mage_Down.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Sprites/Characters/Enemy_Mage_Defeat.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sound/Sound Effects/Mage_Blast.wav" type="AudioStream" id=6]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 4 )
@@ -32,11 +33,10 @@ animations = [ {
 
 [node name="Enemy" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-maxHP = 5
-sendToFront = false
 type = 2
 defeatedSprite = ExtResource( 5 )
 bullet = ExtResource( 3 )
+shootSound = ExtResource( 6 )
 
 [node name="Sprite" parent="." index="1"]
 modulate = Color( 1, 1, 1, 1 )

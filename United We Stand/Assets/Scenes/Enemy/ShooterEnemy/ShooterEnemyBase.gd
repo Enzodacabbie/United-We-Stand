@@ -6,6 +6,8 @@ var aggroTarget # holds reference to the current aggro target of the enemy
 var shotReady # true when the enemy can fire another shot
 export (PackedScene) var bullet # holds reference to the bullet this enemy fires
 
+export (AudioStream) var shootSound
+
 export var moveSpeed = 150 # max movespeed of enemy
 
 var stoppingToShoot
@@ -45,6 +47,12 @@ func _fireShot(bulletType, shotDirection):
 	theBullet.direction = shotDirection
 	theBullet.look_at(position + shotDirection)
 	get_parent().add_child(theBullet)
+	
+	var audioPlayer = AudioStreamPlayer.new()
+	audioPlayer.set_stream(shootSound)
+	audioPlayer.set_volume_db(-8)
+	get_parent().add_child(audioPlayer)
+	audioPlayer.play()
 
 func _stopToShoot():
 	stoppingToShoot = true

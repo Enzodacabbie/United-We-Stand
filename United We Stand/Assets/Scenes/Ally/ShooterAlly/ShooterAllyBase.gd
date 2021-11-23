@@ -63,7 +63,7 @@ func _fireShot(bulletType, shotDirection):
 	
 	var audioPlayer = AudioStreamPlayer.new()
 	audioPlayer.set_stream(shootSound)
-	audioPlayer.set_volume_db(-8)
+	audioPlayer.set_volume_db(-20)
 	get_parent().add_child(audioPlayer)
 	audioPlayer.play()
 

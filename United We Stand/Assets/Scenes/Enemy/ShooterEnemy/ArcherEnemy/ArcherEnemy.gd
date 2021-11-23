@@ -1,4 +1,4 @@
-extends "res://Assets/Scenes/Enemy/ShooterEnemy/ShooterEnemyBase.gd"
+extends ShooterEnemyBase
 
 # the Archer shoots 3 shots every time they go off cooldown.
 

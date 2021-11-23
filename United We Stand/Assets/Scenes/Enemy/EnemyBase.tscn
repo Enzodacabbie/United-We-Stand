@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/Scenes/Enemy/EnemyBase.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Scenes/Interactable/DefeatedFoe.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Sprites/Characters/Enemy_Archer_Down.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sound/Sound Effects/Enemy_Death.wav" type="AudioStream" id=5]
+[ext_resource path="res://Assets/Sound/Sound Effects/Enemy_Hurt.wav" type="AudioStream" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 8.0
@@ -27,6 +29,8 @@ animations = [ {
 [node name="Enemy" type="RigidBody2D" groups=["enemies"]]
 mode = 2
 script = ExtResource( 1 )
+hurtSound = ExtResource( 6 )
+deathSound = ExtResource( 5 )
 defeated = ExtResource( 3 )
 defeatedSprite = ExtResource( 2 )
 

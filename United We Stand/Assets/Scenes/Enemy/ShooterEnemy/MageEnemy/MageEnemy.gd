@@ -1,4 +1,4 @@
-extends "res://Assets/Scenes/Enemy/ShooterEnemy/ShooterEnemyBase.gd"
+extends ShooterEnemyBase
 
 
 # Declare member variables here.
