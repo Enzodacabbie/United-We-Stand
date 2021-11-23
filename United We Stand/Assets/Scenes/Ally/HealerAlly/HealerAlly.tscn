@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Assets/Scenes/Ally/HealerAlly/HealerAlly.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Scenes/Ally/AllyBase.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Sound/Sound Effects/Healer_Heal.wav" type="AudioStream" id=3]
 
 [node name="Ally" instance=ExtResource( 2 )]
 collision_mask = 59
 script = ExtResource( 1 )
+healSound = ExtResource( 3 )
 
 [node name="Sprite" parent="." index="1"]
 modulate = Color( 2.00392, 0.972549, 0.972549, 1 )
